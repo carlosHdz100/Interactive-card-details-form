@@ -1,12 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <main>
+        <div class="container">
+            <div class="row ok">
+                <div class="col-lg-4 col-md-5 col-sm-12 position-relative container-bg-desktop p-0">
+                    <!--BG CARD-->
+                    <div class="container-card">
+                        <img src="images/bg-main-desktop.png" class="bg-desktop" alt="bg desktop">
+                        <img src="images/bg-main-mobile.png" class="bg-mobile" alt="bg mobile">
+                    </div>
+
+                    <!-- CARD FRONT-->
+                    <div class="container-card-front">
+                        <div class="position-relative text-white">
+                            <img src="images/bg-card-front.png" class="card-front">
+                            <div class="logo-card-front">
+                                <svg class="" width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff" />
+                                    <path
+                                        d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z"
+                                        stroke="#fff" />
+                                </svg>
+                            </div>
+                            <div class="number-card-front">0000 0000 0000 0000</div>
+                            <div class="name-card-front">-- --</div>
+                            <div class="date-card-front"><span class="mes">00</span>/<span class="year">00</span></div>
+                        </div>
+                    </div>
+                    <!-- CARD BACK-->
+                    <div class="container-card-back">
+                        <div class="position-relative text-white">
+                            <img src="images/bg-card-back.png" class="card-back">
+                            <div class="cvv-card-back">000</div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-8 col-md-7 col-sm-12 d-flex justify-content-center align-items-center ">
+                    <div class="col-lg-6 col-md-6 col-sm-12 container-form">
+                        <form id="form-card" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="nameCard" class="form-label">Cardholder Name</label>
+                                <input type="text" class="form-control" id="nameCard" maxlength="16" placeholder="e.g. Jane Appleseed"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    Cant't be blank
+                                </div>
+                            </div>
+                            <div class="mb-3 has-validation">
+                                <label for="numberCard" class="form-label">Card Number</label>
+                                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="18" class="form-control" id="numberCard"
+                                    placeholder="e.g. 1234 5678 9123 0000" required>
+
+                                <div class="invalid-feedback">
+                                    <!-- Wrong format, numbers only -->
+                                    Cant't be blank
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="mes" class="form-label col-9">Exp.
+                                        Date(MM/YY)</label>
+
+                                    <div class="row">
+                                        <div class="col-6"><input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2" class="form-control"
+                                                id="mes" placeholder="MM" required>
+
+                                            <div class="invalid-feedback">
+                                                Can't be blank
+                                            </div>
+                                        </div>
+                                        <div class="col-6"><input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2" class="form-control"
+                                                id="year" placeholder="YY" required>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-5">
+                                    <label for="cvv" class="form-label col-3">CVC</label>
+                                    <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" class="form-control" id="cvv"
+                                        placeholder="e.g. 123" required>
+
+                                    <div class="invalid-feedback">
+                                        Can't be blank
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-confirm py-2 col-12 mt-3" type="submit">Confirm</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <div class="card-container position-absolute top-50 start-100 translate-middle">
+        <div class="position-relative">
+            <img src="images/bg-card-front.png" class="card-front position-absolute bottom-50 end-50"
+                alt="card front">
+            <img src="images/bg-card-back.png" class="card-back position-absolute top-50 start-50"
+                alt="card back">
+        </div>
+    </div> -->
+
+
+
+    <!-- <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Carlos Hernandez</a>.
+    </div> -->
+
+
+    <script src="assets/js/bootstrap.js"></script>
+
+
+    <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
